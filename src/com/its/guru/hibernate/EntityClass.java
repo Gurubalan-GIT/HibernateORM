@@ -2,7 +2,7 @@ package com.its.guru.hibernate;
 
 import javax.persistence.*;
 import java.util.Objects;
-
+//Entity class created for object relational mapping for custom database query support.
 @Entity
 @Table(name = "table1", schema = "test")
 public class EntityClass {

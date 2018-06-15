@@ -2,7 +2,7 @@ package com.its.guru.hibernate;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-
+//Database operations.
 public class DAO {
     public void addUser(String fn,String ln,String un,String pass,String address,String gender) {
         try {
