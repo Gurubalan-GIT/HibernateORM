@@ -3,7 +3,7 @@ package com.its.guru.hibernate;
 import javax.persistence.*;
 import java.util.Objects;
 /*Entity class created for object relational mapping for custom database query support.
-You can also initialize hib.xml and do this in XML. 
+You can also initialize hib.xml and do this in XML.
 */
 @Entity
 @Table(name = "table1", schema = "test")
