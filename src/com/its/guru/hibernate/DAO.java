@@ -17,6 +17,7 @@ public class DAO {
             entityClass.setGender(gender);
             session.save(entityClass);
             session.getTransaction().commit();
+            HibernateUtil.shutdown();
         }catch (HibernateException e){
             System.out.println(e.getMessage());
             System.out.print("Error!");
