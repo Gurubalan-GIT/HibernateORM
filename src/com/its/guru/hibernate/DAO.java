@@ -29,6 +29,7 @@ public class DAO {
         }
     }
     public void updateUser(int key){
+        //Using Hibernate Query Language.
         Session session=HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         //Method 1:
