@@ -102,7 +102,6 @@ public class EntityClass {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(key, firstName, lastName, username, password, address, gender);
     }
 }
