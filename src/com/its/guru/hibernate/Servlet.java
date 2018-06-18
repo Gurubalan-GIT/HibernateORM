@@ -21,7 +21,7 @@ public class Servlet extends HttpServlet {
         PrintWriter out = res.getWriter();
         try {
             DAO dao=new DAO();
-            dao.addUser(fn,ln,un,pass,address,gender);
+            dao.updateUser(1);
             out.print("<html><body><h1>Success!</h1></body></html>  ");
         }catch (Exception e){
             e.printStackTrace();

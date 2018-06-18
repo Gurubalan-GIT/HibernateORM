@@ -1,7 +1,12 @@
 package com.its.guru.hibernate;
 
 import org.hibernate.HibernateException;
+import org.hibernate.QueryException;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
+
+import java.util.Iterator;
+
 //Database operations.
 public class DAO {
     public void addUser(String fn,String ln,String un,String pass,String address,String gender) {
@@ -22,5 +27,24 @@ public class DAO {
             System.out.println(e.getMessage());
             System.out.print("Error!");
         }
+    }
+    public void updateUser(int key){
+        Session session=HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        //Method 1:
+        String hql="FROM EntityClass where key="+key;
+        Query query=session.createQuery(hql);
+        /* Method 2:
+        String hql="FROM EntityClass where key=:key";
+        Query query=session.createQuery(hql);
+        query.setParameter("key",key);
+        */
+        for(Iterator iterator=query.iterate();iterator.hasNext();){
+            EntityClass entityClass=(EntityClass) iterator.next();
+            entityClass.setFirstName("Guru");
+            session.update(entityClass);
+        }
+        session.getTransaction().commit();
+        HibernateUtil.shutdown();
     }
 }
