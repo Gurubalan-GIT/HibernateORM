@@ -9,6 +9,7 @@ import java.util.Iterator;
 
 //Database operations.
 public class DAO {
+    //Add a new entry to the database.
     public void addUser(String fn,String ln,String un,String pass,String address,String gender) {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -28,6 +29,7 @@ public class DAO {
             System.out.print("Error!");
         }
     }
+    //Update an existing user in the database according to key.
     public void updateUser(int key){
         //Using Hibernate Query Language.
         Session session=HibernateUtil.getSessionFactory().openSession();
@@ -48,6 +50,7 @@ public class DAO {
         session.getTransaction().commit();
         HibernateUtil.shutdown();
     }
+    //Delete a particular user with the key.
     public void DeleteUser(int key){
         Session session=HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
@@ -66,5 +69,26 @@ public class DAO {
         session.getTransaction().commit();
         HibernateUtil.shutdown();
     }
-    public void
+    //Display User Details on the console.
+    public void DisplayUser(){
+        Session session=HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        //Method 1:
+        String hql="FROM EntityClass"
+        Query query=session.createQuery(hql);
+        /* Method 2:
+        String hql="FROM EntityClass where key=:key";
+        Query query=session.createQuery(hql);
+        query.setParameter("key",key);
+        */
+        for(Iterator iterator=query.iterate();iterator.hasNext();){
+            EntityClass entityClass=(EntityClass)iterator.next();
+            System.out.println(entityClass.getFirstName());
+            System.out.println(entityClass.getLastName());
+            System.out.println(entityClass.getAddress());
+            System.out.println(entityClass.getGender());
+            System.out.println(entityClass.getUsername());
+            System.out.println(entityClass.getPassword());
+        }
+    }
 }
