@@ -74,7 +74,7 @@ public class DAO {
         Session session=HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         //Method 1:
-        String hql="FROM EntityClass"
+        String hql="FROM EntityClass";
         Query query=session.createQuery(hql);
         for(Iterator iterator=query.iterate();iterator.hasNext();){
             EntityClass entityClass=(EntityClass)iterator.next();
