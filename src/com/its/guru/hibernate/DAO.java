@@ -76,11 +76,6 @@ public class DAO {
         //Method 1:
         String hql="FROM EntityClass"
         Query query=session.createQuery(hql);
-        /* Method 2:
-        String hql="FROM EntityClass where key=:key";
-        Query query=session.createQuery(hql);
-        query.setParameter("key",key);
-        */
         for(Iterator iterator=query.iterate();iterator.hasNext();){
             EntityClass entityClass=(EntityClass)iterator.next();
             System.out.println(entityClass.getFirstName());
