@@ -6,7 +6,7 @@ import java.util.Objects;
 You can also initialize hib.xml and do this in XML.
 */
 @Entity
-@Table(name = "table1", schema = "test")
+@Table(name = "EntityClass", schema = "test")
 public class EntityClass {
     private int key;
     private String firstName;

@@ -961,7 +961,7 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="241" parent="6" name="table1"/>
+    <table id="241" parent="6" name="entityclass"/>
     <column id="242" parent="241" name="key">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>

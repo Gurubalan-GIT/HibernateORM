@@ -48,4 +48,23 @@ public class DAO {
         session.getTransaction().commit();
         HibernateUtil.shutdown();
     }
+    public void DeleteUser(int key){
+        Session session=HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        //Method 1:
+        String hql="FROM EntityClass where key="+key;
+        Query query=session.createQuery(hql);
+        /* Method 2:
+        String hql="FROM EntityClass where key=:key";
+        Query query=session.createQuery(hql);
+        query.setParameter("key",key);
+        */
+        for(Iterator iterator=query.iterate();iterator.hasNext();){
+            EntityClass entityClass=(EntityClass)iterator.next();
+            session.delete(entityClass);
+        }
+        session.getTransaction().commit();
+        HibernateUtil.shutdown();
+    }
+    public void
 }
