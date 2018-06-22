@@ -32,58 +32,71 @@ public class DAO {
     //Update an existing user in the database according to key.
     public void updateUser(int key){
         //Using Hibernate Query Language.
-        Session session=HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        //Method 1:
-        String hql="FROM EntityClass where key="+key;
-        Query query=session.createQuery(hql);
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            //Method 1:
+            String hql = "FROM EntityClass where key=" + key;
+            Query query = session.createQuery(hql);
         /* Method 2:
         String hql="FROM EntityClass where key=:key";
         Query query=session.createQuery(hql);
         query.setParameter("key",key);
         */
-        for(Iterator iterator=query.iterate();iterator.hasNext();){
-            EntityClass entityClass=(EntityClass) iterator.next();
-            entityClass.setFirstName("Guru");
-            session.update(entityClass);
+            for (Iterator iterator = query.iterate(); iterator.hasNext(); ) {
+                EntityClass entityClass = (EntityClass) iterator.next();
+                entityClass.setFirstName("Guru");
+                session.update(entityClass);
+            }
+            session.getTransaction().commit();
+            HibernateUtil.shutdown();
+        }catch (HibernateException e){
+            e.printStackTrace();
         }
-        session.getTransaction().commit();
-        HibernateUtil.shutdown();
     }
     //Delete a particular user with the key.
     public void DeleteUser(int key){
-        Session session=HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        //Method 1:
-        String hql="FROM EntityClass where key="+key;
-        Query query=session.createQuery(hql);
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            //Method 1:
+            String hql = "FROM EntityClass where key=" + key;
+            Query query = session.createQuery(hql);
         /* Method 2:
         String hql="FROM EntityClass where key=:key";
         Query query=session.createQuery(hql);
         query.setParameter("key",key);
         */
-        for(Iterator iterator=query.iterate();iterator.hasNext();){
-            EntityClass entityClass=(EntityClass)iterator.next();
-            session.delete(entityClass);
+            for (Iterator iterator = query.iterate(); iterator.hasNext(); ) {
+                EntityClass entityClass = (EntityClass) iterator.next();
+                session.delete(entityClass);
+            }
+            session.getTransaction().commit();
+            HibernateUtil.shutdown();
+        }catch (HibernateException e){
+            System.out.print(e.getMessage());
+            e.printStackTrace();
         }
-        session.getTransaction().commit();
-        HibernateUtil.shutdown();
     }
     //Display User Details on the console.
     public void DisplayUser(){
-        Session session=HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        //Method 1:
-        String hql="FROM EntityClass";
-        Query query=session.createQuery(hql);
-        for(Iterator iterator=query.iterate();iterator.hasNext();){
-            EntityClass entityClass=(EntityClass)iterator.next();
-            System.out.println(entityClass.getFirstName());
-            System.out.println(entityClass.getLastName());
-            System.out.println(entityClass.getAddress());
-            System.out.println(entityClass.getGender());
-            System.out.println(entityClass.getUsername());
-            System.out.println(entityClass.getPassword());
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            //Method 1:
+            String hql = "FROM EntityClass";
+            Query query = session.createQuery(hql);
+            for (Iterator iterator = query.iterate(); iterator.hasNext(); ) {
+                EntityClass entityClass = (EntityClass) iterator.next();
+                System.out.println(entityClass.getFirstName());
+                System.out.println(entityClass.getLastName());
+                System.out.println(entityClass.getAddress());
+                System.out.println(entityClass.getGender());
+                System.out.println(entityClass.getUsername());
+                System.out.println(entityClass.getPassword());
+            }
+        }catch (HibernateException e){
+            e.printStackTrace();
         }
     }
 }
