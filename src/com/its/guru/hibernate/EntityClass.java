@@ -2,19 +2,13 @@ package com.its.guru.hibernate;
 
 import javax.persistence.*;
 import java.util.Objects;
-/*Entity class created for object relational mapping for custom database query support.
-You can also initialize hib.xml and do this in XML.
-*/
+
 @Entity
-@Table(name = "EntityClass", schema = "test")
+@Table(name = "entityclass", schema = "test")
 public class EntityClass {
     private int key;
-    private String firstName;
-    private String lastName;
-    private String username;
+    private String email;
     private String password;
-    private String address;
-    private String gender;
 
     @Id
     @Column(name = "`key`")
@@ -27,33 +21,13 @@ public class EntityClass {
     }
 
     @Basic
-    @Column(name = "`FirstName`")
-    public String getFirstName() {
-        return firstName;
+    @Column(name = "`Email`")
+    public String getEmail() {
+        return email;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    @Basic
-    @Column(name = "`LastName`")
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    @Basic
-    @Column(name = "`Username`")
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Basic
@@ -66,42 +40,19 @@ public class EntityClass {
         this.password = password;
     }
 
-    @Basic
-    @Column(name = "`Address`")
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    @Basic
-    @Column(name = "`Gender`")
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         EntityClass that = (EntityClass) o;
         return key == that.key &&
-                Objects.equals(firstName, that.firstName) &&
-                Objects.equals(lastName, that.lastName) &&
-                Objects.equals(username, that.username) &&
-                Objects.equals(password, that.password) &&
-                Objects.equals(address, that.address) &&
-                Objects.equals(gender, that.gender);
+                Objects.equals(email, that.email) &&
+                Objects.equals(password, that.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(key, firstName, lastName, username, password, address, gender);
+
+        return Objects.hash(key, email, password);
     }
 }

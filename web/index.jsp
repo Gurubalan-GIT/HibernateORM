@@ -1,43 +1,46 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: Gurubalan
-  Date: 15-06-2018
-  Time: 18:00
-  To change this template use File | Settings | File Templates.
+  Author: Gurubalan Harikrishnan
+  Date: 20-06-2018
+  Time: 17:26
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<html lang="en">
 <head>
-  <title>Web Application</title>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <script src="js/jQuery-3.3.1.js"></script>
+    <script src="js/jQuery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </head>
-<body class="body">
-<h3>Sample From</h3>
-<div class="div1">
-  <form method="post" action="Servlet" name="form">
-    Firstname: <input type="text" name="fn" id="id-fn" placeholder="Enter name!"/>
-    <br/>
-    <br/>
-    Lastname: <input type="text" name="ln" id="id-ln" placeholder="Enter name!"/>
-    <br/>
-    <br/>
-    Username: <input type="text" name="un" id="id-un" placeholder="Enter name!"/>
-    <br/>
-    <br/>
-    Password: <input type="password" name="pass" id="id-pass" placeholder="Enter name!"/>
-    <br/>
-    <br/>
-    <label class="l1">Address: </label><textarea name="address" id="id-address"></textarea>
-    <br/>
-    <br/>
-    Gender: <select name="gender" id="id-gender">
-    <option value="Male">Male</option>
-    <option value="Female">Female</option>
-  </select>
-    <br/>
-    <br/>
-    <input type="submit" value="Submit!"/>
-    <br/>
-  </form>
+<body>
+<div class="d-flex align-items-center h-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 offset-lg-4">
+                <form method="post" action="Servlet">
+                    <div class="form-group">
+                        <label for="email">Email address:</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" id="pwd" name="pwd">
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox"> Remember me
+                        </label>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

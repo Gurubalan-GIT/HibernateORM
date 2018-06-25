@@ -969,49 +969,27 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="243" parent="241" name="FirstName">
+    <column id="243" parent="241" name="Email">
       <Position>2</Position>
       <DataType>varchar(30)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="244" parent="241" name="LastName">
+    <column id="244" parent="241" name="Password">
       <Position>3</Position>
       <DataType>varchar(30)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="245" parent="241" name="Username">
-      <Position>4</Position>
-      <DataType>varchar(30)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="246" parent="241" name="Password">
-      <Position>5</Position>
-      <DataType>varchar(30)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="247" parent="241" name="Address">
-      <Position>6</Position>
-      <DataType>varchar(200)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="248" parent="241" name="Gender">
-      <Position>7</Position>
-      <DataType>varchar(30)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="249" parent="241" name="table1_key_uindex">
+    <index id="245" parent="241" name="table1_key_uindex">
       <ColNames>key</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="250" parent="241" name="PRIMARY">
+    <key id="246" parent="241" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>key</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="251" parent="241" name="table1_key_uindex">
+    <key id="247" parent="241" name="table1_key_uindex">
       <ColNames>key</ColNames>
       <UnderlyingIndexName>table1_key_uindex</UnderlyingIndexName>
     </key>
